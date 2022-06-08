@@ -105,6 +105,9 @@ public class SettingsHomescreen extends CollapsingToolbarBaseActivity
             case Utilities.SHOW_HOTSEAT_BG:
                 LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                 break;
+            case Utilities.KEY_SHOW_SEARCH_BAR:
+                Utilities.restart(getApplicationContext());
+                break;
             default:
                 break;
         }

@@ -361,6 +361,9 @@ public class AllAppsContainerView extends SpringRelativeLayout implements DragSo
         mSearchContainer = findViewById(R.id.search_container_all_apps);
         mSearchUiManager = (SearchUiManager) mSearchContainer;
         mSearchUiManager.initializeSearch(this);
+        if(!Utilities.showSearchbarEnabled(getContext())){
+            mSearchContainer.setVisibility(View.GONE);
+        }
     }
 
     public SearchUiManager getSearchUiManager() {

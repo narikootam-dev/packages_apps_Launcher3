@@ -269,9 +269,9 @@ public class SettingsMisc extends CollapsingToolbarBaseActivity
 
 		case Utilities.KEY_DRAWER_THEME:
 		    return Themes.isThemedIconEnabled(getContext());
-
+        case Utilities.KEY_SHOW_SEARCH_BAR:
+            return Utilities.showSearchbarEnabled(getContext());
             }
-
             return true;
         }
 
