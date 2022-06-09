@@ -85,7 +85,7 @@
             android:key="show_hotseat_bg"
             android:title="@string/hotseat_bg_title"
             android:summary="@string/hotseat_bg_summary"
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:persistent="true"/>
 
     </PreferenceCategory>
