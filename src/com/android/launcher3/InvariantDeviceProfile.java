@@ -309,12 +309,14 @@ public class InvariantDeviceProfile implements OnSharedPreferenceChangeListener 
             case DeviceProfile.KEY_ROW_HEIGHT:
                 onConfigChanged(mContext);
                 break;
+            case DeviceProfile.KEY_SHOW_SEARCH_BAR:
+                onConfigChanged(mContext,true);
+                break;
             case DeviceProfile.KEY_PHONE_TASKBAR:
                 // Create the illusion of this taking effect immediately
                 // Also needed because TaskbarManager inits before SystemUiProxy on start
                 boolean enabled = Utilities.getPrefs(mContext).getBoolean(DeviceProfile.KEY_PHONE_TASKBAR, isTablet);
                 SystemUiProxy.INSTANCE.get(mContext).setTaskbarEnabled(enabled);
-
                 onConfigChanged(mContext, true);
                 break;
         }
