@@ -328,14 +328,14 @@ public class DepthController implements StateHandler<LauncherState>,
 
             // Set early wake-up flags when we know we're executing an expensive operation, this way
             // SurfaceFlinger will adjust its internal offsets to avoid jank.
-            boolean wantsEarlyWakeUp = depth > 0 && depth < 1;
-            if (wantsEarlyWakeUp && !mInEarlyWakeUp) {
-                transaction.setEarlyWakeupStart();
-                mInEarlyWakeUp = true;
-            } else if (!wantsEarlyWakeUp && mInEarlyWakeUp) {
-                transaction.setEarlyWakeupEnd();
-                mInEarlyWakeUp = false;
-            }
+            //boolean wantsEarlyWakeUp = depth > 0 && depth < 1;
+            //if (wantsEarlyWakeUp && !mInEarlyWakeUp) {
+            //    transaction.setEarlyWakeupStart();
+            //    mInEarlyWakeUp = true;
+            //} else if (!wantsEarlyWakeUp && mInEarlyWakeUp) {
+            //    transaction.setEarlyWakeupEnd();
+            //    mInEarlyWakeUp = false;
+            //}
 
             AttachedSurfaceControl rootSurfaceControl =
                     mLauncher.getRootView().getRootSurfaceControl();
