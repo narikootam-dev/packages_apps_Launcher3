@@ -272,7 +272,9 @@ public class DeviceProfile {
     public int flingToDeleteThresholdVelocity;
 
     // Meminfo in overview
-    public int memInfoMarginPx;
+    public int memInfoMarginGesturePx;
+    public int memInfoMarginThreeButtonPx;
+    public int memInfoMarginTop;
 
     /** TODO: Once we fully migrate to staged split, remove "isMultiWindowMode" */
     DeviceProfile(Context context, InvariantDeviceProfile inv, Info info, WindowBounds windowBounds,
@@ -524,8 +526,12 @@ public class DeviceProfile {
 
         splitPlaceholderInset = res.getDimensionPixelSize(R.dimen.split_placeholder_inset);
 
-        memInfoMarginPx = res.getDimensionPixelSize(
-                R.dimen.meminfo_bottom_margin);
+        memInfoMarginGesturePx = res.getDimensionPixelSize(
+                R.dimen.meminfo_bottom_margin_gesture);
+        memInfoMarginThreeButtonPx = res.getDimensionPixelSize(
+                R.dimen.meminfo_bottom_margin_three_button);
+        memInfoMarginTop = res.getDimensionPixelSize(
+                R.dimen.meminfo_top_margin);
 
         // Calculate all of the remaining variables.
         extraSpace = updateAvailableDimensions(res);
