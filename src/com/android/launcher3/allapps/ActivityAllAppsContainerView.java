@@ -55,6 +55,8 @@ public class ActivityAllAppsContainerView<T extends Context & AppLauncher
     /** {@code true} when rendered view is in search state instead of the scroll state. */
     private boolean mIsSearching;
 
+    private boolean mShowSearchBar = false;
+
     public ActivityAllAppsContainerView(Context context) {
         this(context, null);
     }
@@ -65,6 +67,7 @@ public class ActivityAllAppsContainerView<T extends Context & AppLauncher
 
     public ActivityAllAppsContainerView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mShowSearchBar = Utilities.showSearchbarEnabled(context);
     }
 
     public SearchUiManager getSearchUiManager() {
@@ -136,7 +139,7 @@ public class ActivityAllAppsContainerView<T extends Context & AppLauncher
     protected void onFinishInflate() {
         super.onFinishInflate();
         mSearchContainer = findViewById(R.id.search_container_all_apps);
-        if(!Utilities.showSearchbarEnabled(getContext())){
+        if(!mShowSearchBar){
             mSearchContainer.setVisibility(View.GONE);
         }
         mSearchUiManager = (SearchUiManager) mSearchContainer;
@@ -260,6 +263,10 @@ public class ActivityAllAppsContainerView<T extends Context & AppLauncher
 
         int topMargin = getContext().getResources().getDimensionPixelSize(
                 R.dimen.all_apps_header_top_margin);
+        
+        if(!mShowSearchBar)
+            topMargin = 0;
+
         if (includeTabsMargin) {
             topMargin += getContext().getResources().getDimensionPixelSize(
                     R.dimen.all_apps_header_pill_height);
