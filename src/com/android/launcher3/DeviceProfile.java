@@ -1282,7 +1282,8 @@ public class DeviceProfile {
                 hotseatBarPadding.left += getAdditionalQsbSpace();
             }
         } else if (isScalableGrid) {
-            int sideSpacing = (availableWidthPx - hotseatQsbWidth) / 2;
+            int sideSpacing = isTablet ? (availableWidthPx - hotseatWidth) / 2
+                    : (availableWidthPx - hotseatWidth) / 2;
             hotseatBarPadding.set(sideSpacing,
                     0,
                     sideSpacing,
@@ -1307,7 +1308,7 @@ public class DeviceProfile {
     }
 
     private int getAdditionalQsbSpace() {
-        return isQsbInline ? hotseatQsbWidth + hotseatBorderSpace : 0;
+        return isTablet && isQsbInline ? hotseatQsbWidth + hotseatBorderSpace : 0;
     }
 
     /**
