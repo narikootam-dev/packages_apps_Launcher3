@@ -176,6 +176,7 @@ public final class Utilities {
     public static final String KEY_SHOW_QUICKSPACE_PSONALITY = "pref_quickspace_psonality";
     public static final String KEY_SHOW_QUICKSPACE_NOWPLAYING = "pref_quickspace_np";
     public static final String KEY_SHOW_QUICKSPACE_WEATHER = "pref_quickspace_weather";
+    public static final String KEY_DRAWER_SEARCHBAR = "pref_drawer_searchbar";
 
     /**
      * Returns true if theme is dark.
@@ -1052,5 +1053,10 @@ public final class Utilities {
     public static boolean isQuickspaceWeather(Context context) {
         SharedPreferences prefs = getPrefs(context.getApplicationContext());
         return prefs.getBoolean(KEY_SHOW_QUICKSPACE_WEATHER, true);
+    }
+
+    public static boolean showSearchBar(Context context) {
+        SharedPreferences prefs = getPrefs(context.getApplicationContext());
+        return prefs.getBoolean(KEY_DRAWER_SEARCHBAR, true);
     }
 }
