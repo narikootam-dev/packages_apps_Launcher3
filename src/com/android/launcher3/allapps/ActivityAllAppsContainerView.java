@@ -70,6 +70,19 @@ public class ActivityAllAppsContainerView<T extends Context & ActivityContext>
     protected void onFinishInflate() {
         super.onFinishInflate();
         mSearchUiManager.initializeSearch(this);
+
+        if (!Utilities.isThemedIconsEnabled(getContext())) {
+          getSearchView().setBackgroundResource(R.drawable.bg_all_apps_searchbox_google);
+        } else {
+          getSearchView().setBackgroundResource(R.drawable.bg_all_apps_searchbox_google_themed);
+        }
+
+        if (Utilities.showSearchBar(getContext())) {
+            mSearchContainer.setVisibility(View.VISIBLE);
+        } else {
+            mSearchContainer.setVisibility(View.GONE);
+        }
+
     }
 
     public SearchUiManager getSearchUiManager() {
