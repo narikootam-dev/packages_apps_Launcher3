@@ -164,6 +164,14 @@ public class Hotseat extends CellLayout implements Insettable, ShakeUtils.OnShak
         return false;
     }
 
+    private void bindShake() {
+        mShakeUtils.bindShakeListener(this);
+    }
+
+    private void unBindShake() {
+        mShakeUtils.unBindShakeListener(this);
+    }
+
     @Override
     public void onVisibilityAggregated(boolean isVisible) {
         super.onVisibilityAggregated(isVisible);
@@ -172,9 +180,17 @@ public class Hotseat extends CellLayout implements Insettable, ShakeUtils.OnShak
             mOnVisibilityAggregatedCallback.accept(isVisible);
         }
         
-        boolean mGestureEnabled = isVisible && !mIsBinded && Utilities.homeScreenShakeTorch(getContext());
-        mShakeUtils.bindShakeListener(this, mGestureEnabled);
-        mIsBinded = mGestureEnabled;
+        boolean mGestureEnabled = Utilities.homeScreenShakeTorch(getContext());
+        
+        if (isVisible && mGestureEnabled) {
+            bindShake();
+            mIsBinded = true;
+        } else {
+            if (mIsBinded) {
+               unBindShake();
+               mIsBinded = false;
+            }
+        }
     }
 
     /** Sets a callback to be called onVisibilityAggregated */

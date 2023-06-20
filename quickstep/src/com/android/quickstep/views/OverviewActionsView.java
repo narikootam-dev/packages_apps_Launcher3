@@ -152,11 +152,22 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
         prefs.registerOnSharedPreferenceChangeListener(this);
     }
 
+    private void bindShake() {
+        mShakeUtils.bindShakeListener(this);
+    }
+
+    private void unBindShake() {
+        mShakeUtils.unBindShakeListener(this);
+    }
+
     @Override
     public void onVisibilityAggregated(boolean isVisible) {
         super.onVisibilityAggregated(isVisible);
-        
-        mShakeUtils.bindShakeListener(this, isVisible);
+        if (isVisible) {
+            bindShake();
+        } else {
+            unBindShake();
+        }
     }
 
     @Override
