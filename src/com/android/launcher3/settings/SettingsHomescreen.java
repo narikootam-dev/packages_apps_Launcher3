@@ -24,7 +24,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
@@ -116,13 +115,9 @@ public class SettingsHomescreen extends CollapsingToolbarBaseActivity
             case Utilities.KEY_DOCK_MUSIC_SEARCH:
             case Utilities.KEY_HOTSEAT_OPACITY:
             case Utilities.KEY_VIBRATION_TOGGLE:
+            case Utilities.KEY_SHAKE_GESTURES:
             case Utilities.KEY_SHAKE_GESTURES_INTENSITY:
             case Utilities.KEY_FORCE_MONOCHROME_ICONS:
-                LauncherAppState.getInstanceNoCreate().setNeedsRestart();
-                break;
-	    case Utilities.KEY_SHAKE_GESTURES:
-	    	int mGestureAction = Utilities.shakeGestureAction(this);
-	    	Toast.makeText(this, mGestureAction == 0 ? R.string.shake_gestures_disabled : (mGestureAction == 1 ? R.string.shake_gestures_torch : R.string.shake_gestures_music), Toast.LENGTH_SHORT).show();
                 LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                 break;
             default:
