@@ -214,7 +214,6 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
     public void onShake(double speed) {
         if (mCallbacks != null && findViewById(R.id.action_clear_all).getVisibility() == VISIBLE) {
             mCallbacks.onClearAllTasksRequested();
-            VibratorWrapper.INSTANCE.get(mContext).vibrate(VibratorWrapper.EFFECT_CLICK);
             setCallbacks(null); // Clear the listener after shake
         }
     }
