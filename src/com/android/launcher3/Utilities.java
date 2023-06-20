@@ -183,8 +183,6 @@ public final class Utilities {
     public static final String KEY_HOTSEAT_OPACITY = "pref_hotseat_opacity";
     public static final String KEY_VIBRATION_TOGGLE = "pref_recents_vibration";
     public static final String KEY_SHAKE_GESTURES = "shake_homescreen_gesture_torch";
-    public static final String KEY_SHAKE_GESTURES_INTENSITY = "shake_homescreen_gesture_torch_intensity";
-    public static final String KEY_SHAKE_CLEAR_GESTURES_INTENSITY = "shake_clear_intensity";
     public static final String KEY_FORCE_MONOCHROME_ICONS = "pref_forced_monochrome_icons";
     public static final String KEY_LENS = "pref_recents_lens";
 
@@ -987,17 +985,7 @@ public final class Utilities {
     	SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
     	return prefs.getBoolean(KEY_SHAKE_GESTURES, false);
    }
-
-    public static int homeScreenShakeTorchIntensity(Context context) {
-        SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
-        return prefs.getInt(KEY_SHAKE_GESTURES_INTENSITY, 4);
-    }
-    
-    public static int shakeClearIntensity(Context context) {
-        SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
-        return prefs.getInt(KEY_SHAKE_CLEAR_GESTURES_INTENSITY, 4);
-    }
-    
+   
     public static boolean enableMonoChromeThemedIcons(Context context) {
     	SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
     	return prefs.getBoolean(KEY_FORCE_MONOCHROME_ICONS, false);

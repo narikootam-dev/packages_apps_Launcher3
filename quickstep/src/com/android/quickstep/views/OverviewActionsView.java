@@ -164,8 +164,7 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
         super.onFinishInflate();
         mMultiValueAlpha = new MultiValueAlpha(findViewById(R.id.action_buttons), NUM_ALPHAS);
         mMultiValueAlpha.setUpdateVisibility(true);
-        int mShakeClearIntensity = Utilities.shakeClearIntensity(getContext());
-        mShakeUtils = new ShakeUtils(getContext(), mShakeClearIntensity);
+        mShakeUtils = new ShakeUtils(getContext());
         updateVisibilities();
     }
 
